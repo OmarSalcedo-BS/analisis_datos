@@ -9,4 +9,6 @@ ID,Categoría,Texto,Fuente/Autor,Longitud_Caracteres,Sentimiento
 8,Versículo,Mas hágase todo decentemente y con orden.,1 Corintios 14:40,43,Positivo
 9,Frase,"la verdadera generosidad hacia el futuro consiste en darlo todo al presente.",albert camus,75,positivo
 10,Versículo,Perdonen y serán perdonados.,Lucas 6:37,32,Positivo
-
+11,versículo,perdón en el corazón es la verdadera generosidad.,lucia 6:37,32,positivo
+11,Frase,"Casaté y te arrepentiras, no te cases y te arrepentiras",albert camus,75,negativo
+12,Frase,"La vida es sufrimiento",albert camus,75,negativo

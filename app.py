@@ -1,5 +1,15 @@
 import os
 import data_clean
+import pandas as pd
+
+"""
+Momento 2 -  Fecha límite jueves 15 de enero.
+Construir una aplicación de análisis de datos en Python. El reto consiste en crear un módulo de funciones que pueda limpiar y preparar datos, y luego usar ese módulo en un script principal para responder preguntas clave sobre la información de su proyecto.
+
+"""
+
+
+
 
 def limpiar_consola():
     """
@@ -12,6 +22,59 @@ def limpiar_consola():
         os.system('clear')
 
 
+def respuestas_preguntas_clave(df: pd.DataFrame, df_autores: pd.DataFrame):
+    """
+    El programa en su fase final debe 
+    Realizar operaciones de filtrado, combinación (merge) y agrupación (groupby)
+    Imprimir en la consola las respuestas
+    """
+    print("\n" + "="*50)
+    print("\n--- Respuestas a preguntas clave ---")
+    print("="*50)
+
+    #Agrupacion por categoria
+    print("\nAgrupación por categoría:")
+    longitud_promedio = df.groupby('Categoría')['Longitud_Caracteres'].mean().round(2)
+    print("\nLongitud promedio por categoría:")
+    print(longitud_promedio)
+    print(f"Interpretación: los 'versículos' tienen un promedio de {longitud_promedio['versículo']} caracteres")
+
+    #Filtrado
+    df_frases_negativas = df[
+        (df['Categoría'] == 'frase') &
+        (df['Sentimiento'] == 'negativo')
+    ]
+    print("\nConteo de frases negativas:")
+    print(df_frases_negativas['ID'].count())
+    print("\nFrases negativas:")
+    print(df_frases_negativas[['Texto', 'Fuente/Autor']]
+    if not df_frases_negativas.empty else "No se encontraron frases negativas.")
+
+
+    #Merge
+    df_merge = pd.merge(
+        df,
+        df_autores,
+        left_on = 'Fuente/Autor',
+        right_on = 'Nombre_Autor',
+        how = 'left'
+    )
+
+    #Agruparemos para contar cuantos de los autores son 'clásico'
+    conteo_clasicos = df_merge[df_merge['Clasificacion'] == 'clásico']['ID'].count()
+    print("\nConteo de autores Clásicos:")
+    print(conteo_clasicos)
+    print(f"Número total de frases de autores Clásicos: {conteo_clasicos}")
+    print(f"Se úso un left merge para vincular la clasificación de los autores con el DataFrame principal")
+
+    # --- 4. FILTRADO POST-MERGE ---
+    df_moderno = df_merge[df_merge['Clasificacion'] == 'moderno'][['Texto', 'Clasificacion']]
+    print("\n4. Frases Clasificadas como Modernas:")
+    print(df_moderno)
+    
+    print("="*50)
+    
+
 
 
 
@@ -21,8 +84,9 @@ def main():
     print("--- Bienvenido al AF&V (Analizador de frases y versículos) ---")
 
     df_datos = data_clean.cargar_datos()
+    df_autores = data_clean.cargar_datos_secundarios()
     
-    if df_datos.empty:
+    if df_datos.empty or df_autores.empty:
         print("Finalizando ejecución debido a error de carga.")
         return
         
@@ -58,6 +122,9 @@ def main():
   
     
     print("--- Proceso de Limpieza Completado. ---")
+
+    respuestas_preguntas_clave(df_limpio, df_autores)
+    print("\n--- Proceso de Análisis Completado y respuestas a preguntas clave ---")
 
 
 

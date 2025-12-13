@@ -17,13 +17,15 @@ def main():
     print("--- Bienvenido al AF&V (Analizador de frases y versículos) ---")
 
     df_datos = data_clean.cargar_datos(data_clean.RUTA_ARCHIVO)
+    df_limpio = data_clean.manejar_nulos(df_datos)
 
-    if df_datos.empty:
+    if df_limpio.empty:
         print("No se pudo cargar los datos. Por favor, verifica la ruta del archivo.")
         return
     print("\nDatos cargados correctamente:\n")
-    print(df_datos.head()) 
-    print("-" * 50)
+    print(df_limpio.head())
+    print("\n")
+    print("-" * 120)
 
 
 

@@ -40,3 +40,26 @@ def cargar_datos(ruta: str) -> pd.DataFrame:
         return pd.DataFrame()
 
 
+def manejar_nulos(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Maneja los valores nulos en el DataFrame.
+    """
+    df_procesado = df.copy()
+    print("\nManejo de valores nulos:")
+
+    filas_iniciales = len(df_procesado)
+    df_procesado.dropna(subset=['Texto', 'Sentimiento'], inplace=True)
+    eliminadas = filas_iniciales - len(df_procesado)
+    print(f"Filas eliminadas: {eliminadas} filas (datos criticos faltantes en el texto, sentimiento o autor)")
+
+    df_procesado['Sentimiento'].fillna('No clasificado', inplace=True) # Rellena valores nulos en 'Sentimiento' con 'No clasificado'
+    df_procesado['Longitud_Caracteres'].fillna(0, inplace=True) # Rellena valores nulos en 'Longitud_Caracteres' con 0
+    df_procesado['Fuente/Autor'].fillna('No clasificado', inplace=True) # Rellena valores nulos en 'Fuente/Autor' con 'No clasificado'
+
+
+    print("Se rellenó 'Sentimiento' con 'No clasificado' y 'Longitud_Caracteres' con 0")
+    print("Se rellenó 'Fuente/Autor' con 'No clasificado'")
+    print(f"Total de filas: {len(df_procesado)}")
+    print("\nManejo de valores nulos completado")
+    return df_procesado
+    

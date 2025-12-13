@@ -63,3 +63,49 @@ def manejar_nulos(df: pd.DataFrame) -> pd.DataFrame:
     print("\nManejo de valores nulos completado")
     return df_procesado
     
+
+
+
+def estandarizar_texto(df: pd.DataFrame, columna: str) -> pd.DataFrame:
+    """
+    Estandariza una columna de texto, convirtiendo a minúsculas y eliminando
+    espacios extra
+    """
+
+    df_procesado = df.copy()
+    print(f"\nEstandarizando la columna '{columna}'...")
+
+    if df_procesado[columna].dtype != 'object':
+        
+        df_procesado[columna] = df_procesado[columna].str.lower()
+
+        df_procesado[columna] = df_procesado[columna].str.strip()
+
+        print(f"Columna '{columna}' unificada a minúsculas y espacios extra eliminados con éxito")
+    else:
+        print(f"La columna '{columna}' no es de tipo texto, no se puede estandarizar")    
+    
+    print("\nEstandarización completada")
+    return df_procesado
+
+
+
+
+def limpieza_especifica(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Función de limpieza específica (eliminar símbolos y recalcular longitud).
+    """
+    df_procesado = df.copy()
+    
+    print("\n[LIMPIEZA ESPECÍFICA DE METADATOS]")
+    
+    df_procesado['Fuente/Autor'] = df_procesado['Fuente/Autor'].astype(str).str.replace(r'[$,!"]', '', regex=True)
+    df_procesado['Fuente/Autor'] = df_procesado['Fuente/Autor'].str.strip()
+    print("- Símbolos especiales eliminados de la columna 'Fuente/Autor'.")
+    
+    df_procesado['Longitud_Caracteres'] = df_procesado['Texto'].astype(str).str.len()
+    print("- Recalculada la 'Longitud_Caracteres' basándose en el texto limpio.")
+    
+    print("Limpieza específica completada.")
+    
+    return df_procesado 

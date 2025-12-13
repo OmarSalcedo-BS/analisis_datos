@@ -24,6 +24,9 @@ def cargar_datos_secundarios() -> pd.DataFrame:
     """
     try:
         df = pd.read_csv(RUTA_AUTORES)
+        
+        df['Nombre_Autor'] = df['Nombre_Autor'].str.lower().str.strip()
+        df['Clasificacion'] = df['Clasificacion'].str.lower().str.strip()
         print(f"Datos secundarios cargados correctamente desde: {RUTA_AUTORES}")
         return df
     except FileNotFoundError:
@@ -68,10 +71,12 @@ def estandarizar_texto(df: pd.DataFrame, columna: str) -> pd.DataFrame:
     print(f"\nEstandarizando la columna '{columna}'...")
 
     if df_procesado[columna].dtype == 'object':
-        
+       
         df_procesado[columna] = df_procesado[columna].str.lower()
-
+     
         df_procesado[columna] = df_procesado[columna].str.strip()
+   
+        df_procesado[columna] = df_procesado[columna].str.replace(r'\s+', ' ', regex=True)
 
         print(f"Columna '{columna}' unificada a minúsculas y espacios extra eliminados con éxito")
     else:
@@ -93,7 +98,8 @@ def limpieza_especifica(df: pd.DataFrame) -> pd.DataFrame:
     
     df_procesado['Fuente/Autor'] = df_procesado['Fuente/Autor'].astype(str).str.replace(r'[$,!"]', '', regex=True)
     df_procesado['Fuente/Autor'] = df_procesado['Fuente/Autor'].str.strip()
-    print("- Símbolos especiales eliminados de la columna 'Fuente/Autor'.")
+    df_procesado['Fuente/Autor'] = df_procesado['Fuente/Autor'].str.lower()
+    print("- Símbolos especiales eliminados y convertido a minúsculas en 'Fuente/Autor'.")
     
     df_procesado['Longitud_Caracteres'] = df_procesado['Texto'].astype(str).str.len()
     print("- Recalculada la 'Longitud_Caracteres' basándose en el texto limpio.")

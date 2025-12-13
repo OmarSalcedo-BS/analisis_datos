@@ -12,11 +12,15 @@ def limpiar_consola():
         os.system('clear')
 
 
+
+
+
+
 def main():
     limpiar_consola()
     print("--- Bienvenido al AF&V (Analizador de frases y versículos) ---")
 
-    df_datos = data_clean.cargar_datos(data_clean.RUTA_ARCHIVO)
+    df_datos = data_clean.cargar_datos()
     
     if df_datos.empty:
         print("Finalizando ejecución debido a error de carga.")
@@ -31,18 +35,23 @@ def main():
     df_limpio = data_clean.estandarizar_texto(df_limpio, 'Categoría')
     df_limpio = data_clean.estandarizar_texto(df_limpio, 'Sentimiento')
 
+
     print("\n--- Vista después de Estandarización de Texto ---")
     print(df_limpio[['Categoría', 'Sentimiento', 'Fuente/Autor', 'Texto']].head())
     print("-" * 120)
     
     df_limpio = data_clean.limpieza_especifica(df_limpio)
 
-    print("\n --- Vista de textos completo ---")
-    print(df_limpio[['Texto']].tail())
+    print("\n--- Ejemplos de Autores Limpiados (símbolos especiales eliminados) ---")
+    autores_ejemplo = df_limpio[df_limpio['Fuente/Autor'].str.contains('einstein|camus|sócrates', case=False, na=False)]
+    if not autores_ejemplo.empty:
+        print(autores_ejemplo[['Fuente/Autor', 'Longitud_Caracteres', 'Texto']].head(10))
+    else:
+        print("No se encontraron los autores de ejemplo")
     print("-" * 120)
     
-    print("\n--- Vista FINAL de Datos Limpios (Listos para Análisis) ---")
-    print(df_limpio[['Fuente/Autor', 'Longitud_Caracteres']].tail())
+    print("\n--- Vista FINAL de Datos Limpios (Primeras 10 filas) ---")
+    print(df_limpio[['Fuente/Autor', 'Sentimiento', 'Longitud_Caracteres']].head(10))
     print("-" * 120)
 
 

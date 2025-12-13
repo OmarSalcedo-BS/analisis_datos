@@ -1,41 +1,12 @@
 ID,Categoría,Texto,Fuente/Autor,Longitud_Caracteres,Sentimiento
-1,Versículo,"Sean amables y compasivos unos con otros, y perdónense mutuamente.",Efesios 4:32,100,Positivo
-2,Frase,"No es más rico quien más tiene, sino quien menos necesita.",Buda,56,positivo
+1,VE RSÍCULO,"Sean amables y compasivos unos con otros, y perdónense mutuamente.",Efesios 4:32,100,Positivo
+2,frase,"No es más rico quien más tiene, sino quien menos necesita.",Buda,56,positivo
 3,Versículo,El que perdona la ofensa cultiva el amor; el que insiste en la ofensa divide a los amigos.,Proverbios 17:9,79,NA
-4,Frase,Si tu intención es describir la verdad, deja la elegancia al sastre.,$ Albert Einstein $$,73,Positivo
+4,FRASE,Si tu intención es describir la verdad, deja la elegancia al sastre.,$ Albert Einstein $$,73,Positivo
 5,Versículo,No,NA,0,Negativo
 6,Frase,La sabiduría viene de la capacidad de estar en calma.,Séneca,45,Positivo
 7,Frase,"Una vida sin examen no vale la pena ser vivida.",SÓCRATES,51,positivo
 8,Versículo,Mas hágase todo decentemente y con orden.,1 Corintios 14:40,43,Positivo
 9,Frase,"la verdadera generosidad hacia el futuro consiste en darlo todo al presente.",albert camus,75,positivo
 10,Versículo,Perdonen y serán perdonados.,Lucas 6:37,32,Positivo
-11,Frase,Lo que sabemos es una gota; lo que ignoramos es un inmenso océano.,ISAAC NEWTON,71,Positivo
-12,Versículo,,Proverbios 15:1,NA,Positivo
-13,Frase,"El camino hacia la sabiduría es dejar de decir a la gente lo que quieren escuchar.",NA,89,NA
-14,Frase,"La felicidad no es algo que pospones para el futuro; es algo que diseñas para el presente.",Jim Rohn,89,Positivo
-15,Versículo,"Todo lo puedo en Cristo que me fortalece.",Filipenses 4:13,38,NA
-16,Frase,"El único modo de hacer un gran trabajo es amar lo que haces.",NA,63,Positivo
-17,Versículo,,Salmos 23:1,NA,Positivo
-18,Frase,"No cuentes los días, haz que los días cuenten.",Muhammad Ali,46,NA
-19,Versículo,"Porque donde esté vuestro tesoro, allí estará también vuestro corazón.",NA,70,NA
-20,Frase,"La vida es lo que pasa mientras estás ocupado haciendo otros planes.",John Lennon,69,neutro
-21,Versículo,,NA,NA,Positivo
-22,Frase,"Sé el cambio que quieres ver en el mundo.",NA,47,Positivo
-23,Versículo,"El amor es paciente, el amor es bondadoso.",1 Corintios 13:4,44,NA
-24,Frase,"El éxito no es la clave de la felicidad. La felicidad es la clave del éxito.",Albert Schweitzer,90,NA
-25,Versículo,"Fíate de Jehová de todo tu corazón, y no te apoyes en tu propia prudencia.",NA,89,Positivo
-26,Frase,"La imaginación es más importante que el conocimiento.",Albert Einstein,56,NA
-27,Versículo,,Proverbios 3:5,NA,Positivo
-28,Frase,"El futuro pertenece a quienes creen en la belleza de sus sueños.",NA,76,NA
-29,Versículo,"Pedid, y se os dará; buscad, y hallaréis; llamad, y se os abrirá.",Mateo 7:7,74,NA
-30,Frase,"La mejor venganza es un éxito masivo.",Frank Sinatra,40,Positivo
-31,Frase,"Sé tú mismo, los demás puestos ya están ocupados.",Oscar Wilde,52,Positivo
-32,Versículo,"El Señor es mi pastor; nada me faltará.",Salmos 23:1,38,Positivo
-33,Frase,"No llores porque terminó, sonríe porque sucedió.",Gabriel García Márquez,49,Positivo
-34,Versículo,"Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree, no se pierda, mas tenga vida eterna.",Juan 3:16,159,Positivo
-35,Frase,"La vida es un 10% lo que te pasa y un 90% cómo reaccionas a ello.",Charles R. Swindoll,70,Positivo
-36,Versículo,"Venid a mí todos los que estáis trabajados y cargados, y yo os haré descansar.",Mateo 11:28,81,Positivo
-37,Frase,"Piensa antes de hablar, pero lee antes de pensar.",Fran Lebowitz,50,Neutro
-38,Versículo,"El principio de la sabiduría es el temor de Jehová.",Proverbios 9:10,50,Positivo
-39,Frase,"La paciencia es amarga, pero sus frutos son dulces.",Jean-Jacques Rousseau,55,Positivo
-40,Versículo,"Todo tiene su tiempo, y todo lo que se quiere debajo del cielo tiene su hora.",Eclesiastés 3:1,88,Neutro
+

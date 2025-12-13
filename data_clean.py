@@ -2,42 +2,34 @@ import pandas as pd
 
 
 RUTA_ARCHIVO = "datos/datos.csv"
+RUTA_AUTORES = "datos/autores_clasificacion.csv"
 
-def cargar_datos(ruta: str) -> pd.DataFrame:
+def cargar_datos() -> pd.DataFrame:
+    """
+    Carga del archivo principal
+    """
     try:
-        df = pd.read_csv(
-            ruta,
-            encoding='utf-8',
-            on_bad_lines='skip', 
-            quotechar='"',
-            escapechar='\\'
-        )
-        print(f"Datos cargados con éxito desde: {ruta} ")
-        print(f"Total de filas: {len(df)}")
+        df = pd.read_csv(RUTA_ARCHIVO, on_bad_lines='skip')
+        print(f"Datos cargados correctamente desde: {RUTA_ARCHIVO}")
         return df
     except FileNotFoundError:
-        print(f"Error: No se encontró el archivo: {ruta}")
+        print(f"Error: No se encontró el archivo: {RUTA_ARCHIVO}")
         return pd.DataFrame()
-    except pd.errors.ParserError as e:
-        print(f"Error al parsear el archivo CSV: {e}")
-        print("Intentando con configuración alternativa...")
-        try:
-            df = pd.read_csv(
-                ruta,
-                encoding='latin-1',
-                on_bad_lines='skip',
-                sep=',',
-                engine='python'
-            )
-            print(f"Datos cargados con éxito (modo alternativo)")
-            print(f"Total de filas: {len(df)}")
-            return df
-        except Exception as e2:
-            print(f"Error crítico al cargar datos: {e2}")
-            return pd.DataFrame()
-    except Exception as e:
-        print(f"Error inesperado: {e}")
+
+
+def cargar_datos_secundarios() -> pd.DataFrame:
+    """
+    Carga del archivo secundario para hacer un merge de datos
+
+    """
+    try:
+        df = pd.read_csv(RUTA_AUTORES)
+        print(f"Datos secundarios cargados correctamente desde: {RUTA_AUTORES}")
+        return df
+    except FileNotFoundError:
+        print(f"Error: No se encontró el archivo: {RUTA_AUTORES}")
         return pd.DataFrame()
+
 
 
 def manejar_nulos(df: pd.DataFrame) -> pd.DataFrame:
@@ -75,7 +67,7 @@ def estandarizar_texto(df: pd.DataFrame, columna: str) -> pd.DataFrame:
     df_procesado = df.copy()
     print(f"\nEstandarizando la columna '{columna}'...")
 
-    if df_procesado[columna].dtype != 'object':
+    if df_procesado[columna].dtype == 'object':
         
         df_procesado[columna] = df_procesado[columna].str.lower()
 

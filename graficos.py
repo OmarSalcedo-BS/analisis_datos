@@ -6,7 +6,11 @@ import data_clean
 
 df = data_clean.cargar_datos()
 
+df = data_clean.manejar_nulos(df)
+
 df = data_clean.estandarizar_texto(df, 'Sentimiento')
+
+df = data_clean.estandarizar_texto(df, 'Categoría')
 
 
 
@@ -54,3 +58,24 @@ def graficar_distribucion_sentimientos(df: pd.DataFrame):
     plt.show()
     
     return sentimientos_conteo
+
+
+
+def graficar_por_categoria(df: pd.DataFrame):
+    """
+    Crea un grafico de barras para cada categoría.
+    Args:
+        df: DataFrame con la columna 'Categoría'    
+    """
+
+    plt.figure(figsize=(10, 6))
+    sns.countplot(data=df, x='Categoría', palette='viridis')
+    plt.title('Distribución de Frases y Versículos por Categoría', fontsize=14, fontweight='bold', pad=20)
+    plt.xlabel('Categoría', fontsize=12)
+    plt.ylabel('Cantidad', fontsize=12)
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.show()
+
+graficar_por_categoria(df)
+    

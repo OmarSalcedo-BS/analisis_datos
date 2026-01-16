@@ -119,7 +119,7 @@ def main():
     print("-" * 120)
 
 
-  
+
     
     print("--- Proceso de Limpieza Completado. ---")
 

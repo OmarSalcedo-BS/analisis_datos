@@ -72,11 +72,10 @@ def estandarizar_texto(df: pd.DataFrame, columna: str) -> pd.DataFrame:
     print(f"\nEstandarizando la columna '{columna}'...")
 
     if df_procesado[columna].dtype == 'object':
-       
         df_procesado[columna] = df_procesado[columna].str.lower() #Se convierte a minúsculas
-     
+
         df_procesado[columna] = df_procesado[columna].str.strip() #Se eliminan espacios extra
-   
+        
         df_procesado[columna] = df_procesado[columna].str.replace(r'\s+', ' ', regex=True) #Se reemplazan los espacios en blanco por un solo espacio
 
         print(f"Columna '{columna}' unificada a minúsculas y espacios extra eliminados con éxito")

@@ -37,7 +37,8 @@ def cargar_datos_secundarios() -> pd.DataFrame:
 
 def manejar_nulos(df: pd.DataFrame) -> pd.DataFrame:
     """
-    Maneja los valores nulos en el DataFrame.
+    Maneja los valores nulos en el DataFrame usando dropna para eliminar datos críticos o faltantes
+    y fillna para reemplazar los valores nulos de una columna por una cadena de texto.
     """
     df_procesado = df.copy()
     print("\nManejo de valores nulos:")
@@ -45,7 +46,7 @@ def manejar_nulos(df: pd.DataFrame) -> pd.DataFrame:
     filas_iniciales = len(df_procesado)
     df_procesado.dropna(subset=['Texto', 'Sentimiento'], inplace=True)
     eliminadas = filas_iniciales - len(df_procesado)
-    print(f"Filas eliminadas: {eliminadas} filas (datos criticos faltantes en el texto, sentimiento o autor)")
+    print(f"Filas eliminadas: {eliminadas} filas (datos criticos faltantes en el texto, sentimiento o autor)")#Se eliminan filas con datos criticos faltantes
 
     df_procesado['Sentimiento'].fillna('No clasificado', inplace=True) # Rellena valores nulos en 'Sentimiento' con 'No clasificado'
     df_procesado['Longitud_Caracteres'].fillna(0, inplace=True) # Rellena valores nulos en 'Longitud_Caracteres' con 0
@@ -64,23 +65,24 @@ def manejar_nulos(df: pd.DataFrame) -> pd.DataFrame:
 def estandarizar_texto(df: pd.DataFrame, columna: str) -> pd.DataFrame:
     """
     Estandariza una columna de texto, convirtiendo a minúsculas y eliminando
-    espacios extra
+    espacios extra, reemplazando los espacios en blanco por un solo espacio.
     """
 
-    df_procesado = df.copy()
+    df_procesado = df.copy() #Siempre en cada función se crea una copia del DataFrame original.
     print(f"\nEstandarizando la columna '{columna}'...")
 
     if df_procesado[columna].dtype == 'object':
        
-        df_procesado[columna] = df_procesado[columna].str.lower()
+        df_procesado[columna] = df_procesado[columna].str.lower() #Se convierte a minúsculas
      
-        df_procesado[columna] = df_procesado[columna].str.strip()
+        df_procesado[columna] = df_procesado[columna].str.strip() #Se eliminan espacios extra
    
-        df_procesado[columna] = df_procesado[columna].str.replace(r'\s+', ' ', regex=True)
+        df_procesado[columna] = df_procesado[columna].str.replace(r'\s+', ' ', regex=True) #Se reemplazan los espacios en blanco por un solo espacio
 
         print(f"Columna '{columna}' unificada a minúsculas y espacios extra eliminados con éxito")
     else:
-        print(f"La columna '{columna}' no es de tipo texto, no se puede estandarizar")    
+        print(f"La columna '{columna}' tiene dtype='{df_procesado[columna].dtype}' (no 'object')")
+        print("Solo se pueden estandarizar columnas de tipo 'object' (texto). Columna omitida.")  
     
     print("\nEstandarización completada")
     return df_procesado

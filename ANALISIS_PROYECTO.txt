@@ -1,0 +1,278 @@
+================================================================================
+ANÁLISIS Y DEFENSA DEL PROYECTO - MOMENTO 2
+Aplicación de Análisis de Datos en Python
+Estudiante: Omar Salcedo
+Fecha: Diciembre 2025
+================================================================================
+
+RESUMEN EJECUTIVO
+================================================================================
+Este proyecto implementa una aplicación completa de análisis de datos en Python
+que cumple con TODOS los requisitos establecidos en el Momento 2. El proyecto
+analiza un dataset de frases y versículos, aplicando técnicas de limpieza,
+transformación y análisis de datos usando Pandas.
+
+
+CUMPLIMIENTO DE REQUISITOS (✓ = CUMPLIDO)
+================================================================================
+
+1. ✓ CONFIGURACIÓN DE ENTORNO VIRTUAL (venv)
+   - Ubicación: .venv/ en la raíz del proyecto
+   - Evidencia: Carpeta .venv presente y archivo requeriments.txt generado
+   - Dependencias aisladas del sistema global de Python
+   - Comando usado: python -m venv .venv
+
+2. ✓ USO DE PANDAS PARA CARGAR CSV
+   - Archivo: data_clean.py, línea 12
+   - Función: cargar_datos() y cargar_datos_secundarios()
+   - Implementación: pd.read_csv() con manejo de errores robusto
+   - Archivos cargados: datos/datos.csv y datos/autores_clasificacion.csv
+
+3. ✓ LIMPIEZA DE DATOS
+   - Detección de filas vacías: Implementado en manejar_nulos() (línea 46)
+   - Eliminación de datos erróneos: dropna() para campos críticos
+   - Corrección de datos: fillna() para campos opcionales
+   - Parámetro on_bad_lines='skip' para líneas malformadas en CSV
+
+4. ✓ USO DE .gitignore
+   - Archivo: .gitignore en la raíz
+   - Contenido: venv/, __pycache__/, *.pyc
+   - Protege: Entorno virtual y archivos temporales de Python
+
+5. ✓ CREACIÓN DE RAMA release/analisis-v1
+   - Evidencia: Rama visible en git branch -a
+   - Estructura Git Flow implementada con ramas:
+     * main (producción)
+     * developer (desarrollo)
+     * feature/data-loading (características)
+     * release/analisis-v1 (release)
+
+6. ✓ PROCESO DE DESARROLLO ESTRUCTURADO
+   - Commits descriptivos y organizados
+   - Uso de Git Flow para gestión de versiones
+   - Repositorio con historial completo de cambios
+
+
+FUNCIONES IMPLEMENTADAS - MÓDULO data_clean.py
+================================================================================
+
+1. ✓ FUNCIÓN PARA CARGAR DATOS
+   Nombre: cargar_datos()
+   Ubicación: data_clean.py, líneas 7-17
+   Funcionalidad:
+   - Carga el archivo CSV principal usando pd.read_csv()
+   - Maneja errores FileNotFoundError
+   - Usa on_bad_lines='skip' para datos malformados
+   - Retorna DataFrame vacío en caso de error
+   
+   Función adicional: cargar_datos_secundarios()
+   Ubicación: data_clean.py, líneas 20-34
+   Funcionalidad:
+   - Carga archivo CSV secundario para merge
+   - Estandariza nombres de autores automáticamente
+   - Prepara datos para combinación posterior
+
+2. ✓ FUNCIÓN PARA MANEJAR VALORES NULOS
+   Nombre: manejar_nulos()
+   Ubicación: data_clean.py, líneas 38-59
+   Funcionalidad:
+   - Elimina filas con datos críticos faltantes (Texto, Sentimiento)
+   - Rellena valores nulos en campos opcionales con valores por defecto
+   - Reporta cantidad de filas eliminadas
+   - Usa dropna() y fillna() de Pandas
+   - Mantiene integridad de datos críticos
+
+3. ✓ FUNCIÓN PARA ESTANDARIZAR TEXTO
+   Nombre: estandarizar_texto()
+   Ubicación: data_clean.py, líneas 64-86
+   Funcionalidad:
+   - Convierte texto a minúsculas (.str.lower())
+   - Elimina espacios al inicio y final (.str.strip())
+   - Elimina espacios múltiples dentro del texto (.str.replace())
+   - Verifica tipo de dato antes de procesar
+   - Aplicable a cualquier columna de texto del DataFrame
+
+4. ✓ FUNCIÓN DE LIMPIEZA ESPECÍFICA
+   Nombre: limpieza_especifica()
+   Ubicación: data_clean.py, líneas 91-109
+   Funcionalidad ESPECÍFICA del proyecto:
+   - Elimina símbolos especiales ($, !, ") de nombres de autores
+   - Usa expresiones regulares para limpieza avanzada
+   - Recalcula longitud de caracteres después de limpieza
+   - Estandariza nombres de autores a minúsculas
+   - Prepara datos para análisis consistente
+
+
+OPERACIONES DE ANÁLISIS - SCRIPT app.py
+================================================================================
+
+1. ✓ OPERACIÓN DE AGRUPACIÓN (groupby)
+   Ubicación: app.py, líneas 37-40
+   Implementación:
+   - df.groupby('Categoría')['Longitud_Caracteres'].mean()
+   - Calcula promedio de longitud por categoría
+   - Redondea resultados a 2 decimales
+   - Imprime interpretación de resultados
+
+2. ✓ OPERACIÓN DE FILTRADO
+   Ubicación: app.py, líneas 43-51
+   Implementación:
+   - Filtra frases con sentimiento negativo
+   - Usa operadores lógicos (&) para condiciones múltiples
+   - Cuenta resultados y muestra datos filtrados
+   - Maneja casos sin resultados
+
+3. ✓ OPERACIÓN DE COMBINACIÓN (merge)
+   Ubicación: app.py, líneas 55-61
+   Implementación:
+   - pd.merge() con left join
+   - Combina DataFrame principal con clasificación de autores
+   - Vincula por nombre de autor (left_on/right_on)
+   - Permite análisis enriquecido con datos externos
+
+4. ✓ FILTRADO POST-MERGE
+   Ubicación: app.py, líneas 64-73
+   Implementación:
+   - Filtra autores clásicos después del merge
+   - Cuenta y muestra frases de autores modernos
+   - Demuestra uso combinado de merge + filtrado
+
+5. ✓ IMPRESIÓN DE RESULTADOS EN CONSOLA
+   Ubicación: A lo largo de todo app.py
+   Implementación:
+   - Función respuestas_preguntas_clave() centraliza outputs
+   - Formato claro y organizado con separadores
+   - Interpretaciones de resultados incluidas
+   - Vistas de datos en diferentes etapas del proceso
+
+
+ESTRUCTURA DEL PROYECTO
+================================================================================
+
+analisis_datos/
+│
+├── .venv/                      # Entorno virtual (ignorado en git)
+├── .git/                       # Repositorio Git
+├── .gitignore                  # Configuración de archivos ignorados
+├── __pycache__/                # Cache de Python (ignorado)
+│
+├── datos/                      # Directorio de datos
+│   ├── datos.csv              # Dataset principal
+│   └── autores_clasificacion.csv  # Dataset secundario
+│
+├── app.py                      # Script principal de ejecución
+├── data_clean.py              # Módulo de funciones de limpieza
+├── requeriments.txt           # Dependencias del proyecto
+└── ANALISIS_PROYECTO.txt      # Este documento
+
+
+FLUJO DE EJECUCIÓN DEL PROGRAMA
+================================================================================
+
+1. CARGA DE DATOS
+   - Carga datos.csv y autores_clasificacion.csv
+   - Valida existencia de archivos
+   - Muestra vista preliminar de datos crudos
+
+2. LIMPIEZA DE DATOS
+   - Manejo de valores nulos (elimina/rellena)
+   - Estandarización de texto (minúsculas, espacios)
+   - Limpieza específica (símbolos, recálculo)
+
+3. TRANSFORMACIÓN
+   - Normalización de categorías
+   - Normalización de sentimientos
+   - Normalización de nombres de autores
+
+4. ANÁLISIS
+   - Agrupación por categoría
+   - Filtrado por condiciones
+   - Merge con datos secundarios
+   - Generación de insights
+
+5. PRESENTACIÓN
+   - Impresión de resultados formateados
+   - Interpretaciones de hallazgos
+   - Vistas de datos procesados
+
+
+PUNTOS CLAVE PARA LA DEFENSA
+================================================================================
+
+1. MODULARIDAD Y BUENAS PRÁCTICAS
+   - Separación clara entre módulo de limpieza (data_clean.py) y script
+     principal (app.py)
+   - Funciones con docstrings explicativos
+   - Manejo de errores robusto
+   - Código reutilizable y mantenible
+
+2. USO AVANZADO DE PANDAS
+   - Métodos de Series: .str.lower(), .str.strip(), .str.replace()
+   - Operaciones de DataFrame: dropna(), fillna(), groupby(), merge()
+   - Expresiones regulares para limpieza avanzada
+   - Filtrado con condiciones múltiples
+
+3. GESTIÓN DE PROYECTO PROFESIONAL
+   - Entorno virtual para aislamiento de dependencias
+   - Git Flow para control de versiones
+   - .gitignore para proteger archivos sensibles
+   - Documentación clara del proceso
+
+4. ANÁLISIS SIGNIFICATIVO
+   - No solo limpia datos, sino que genera insights
+   - Combina múltiples fuentes de datos (merge)
+   - Agrupa y resume información (groupby)
+   - Filtra datos relevantes para análisis específicos
+
+5. ROBUSTEZ Y MANEJO DE ERRORES
+   - Validación de archivos antes de procesar
+   - Manejo de líneas malformadas en CSV
+   - Verificación de DataFrames vacíos
+   - Mensajes informativos al usuario
+
+
+RESULTADOS OBTENIDOS
+================================================================================
+
+El programa exitosamente:
+- Carga y procesa datos de frases y versículos
+- Limpia y estandariza información inconsistente
+- Elimina símbolos especiales de nombres de autores
+- Calcula promedios de longitud por categoría
+- Identifica frases por sentimiento
+- Clasifica autores por período filosófico
+- Combina múltiples fuentes de datos
+- Presenta resultados de forma clara y organizada
+
+
+TECNOLOGÍAS Y HERRAMIENTAS UTILIZADAS
+================================================================================
+
+- Python 3.14.0
+- Pandas 2.3.3 (manipulación de datos)
+- NumPy 2.3.5 (operaciones numéricas)
+- Git (control de versiones)
+- venv (gestión de entornos virtuales)
+- CSV (formato de datos)
+
+
+CONCLUSIÓN
+================================================================================
+
+Este proyecto demuestra competencia completa en:
+✓ Análisis de datos con Python y Pandas
+✓ Limpieza y transformación de datos
+✓ Gestión de proyectos con Git Flow
+✓ Buenas prácticas de desarrollo
+✓ Modularización y reutilización de código
+✓ Manejo de errores y validaciones
+✓ Documentación y presentación de resultados
+
+TODOS los requisitos del Momento 2 han sido cumplidos satisfactoriamente,
+con implementaciones que van más allá de lo mínimo requerido, demostrando
+comprensión profunda de los conceptos y capacidad de aplicarlos en un
+proyecto real.
+
+================================================================================
+FIN DEL ANÁLISIS
+================================================================================

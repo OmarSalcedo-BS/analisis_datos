@@ -26,6 +26,11 @@ AF&V es una aplicación de análisis de datos en Python que realiza limpieza, pr
      - Merge de datos con clasificación de autores
      - Conteo de autores clásicos vs modernos
 
+3. **Módulo de gráficos (graficos.py)**:
+   - Visualización de datos mediante matplotlib y seaborn
+   - Gráfico de pastel: Distribución de sentimientos (Positivo, Negativo, No clasificado)
+   - Fácil de expandir con más gráficos
+
 ---
 
 
@@ -238,9 +243,22 @@ C:\Users\disenoydesarrollo\Documents\Omar\analisis_datos>
 
 - **app.py**: Script principal que orquesta el flujo del programa
 - **data_clean.py**: Módulo con funciones de limpieza y procesamiento de datos
+- **graficos.py**: Módulo para generar visualizaciones gráficas de datos
 - **requeriments.txt**: Lista de dependencias y versiones específicas
 - **datos/datos.csv**: Archivo con frases y versículos (Texto, Categoría, Sentimiento, Autor)
 - **datos/autores_clasificacion.csv**: Archivo con clasificación de autores (Nombre_Autor, Clasificacion)
+
+---
+
+## Cómo Usar los Gráficos
+
+### Generar gráfico de distribución de sentimientos:
+
+```powershell
+python graficos.py
+```
+
+Esto genera un gráfico de pastel mostrando la proporción de frases positivas, negativas y no clasificadas.
 
 ---
 

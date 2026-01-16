@@ -51,8 +51,6 @@ def graficar_distribucion_sentimientos(df: pd.DataFrame):
             pad=20)
     
     plt.tight_layout()
-    plt.savefig('distribucion_sentimientos.png', dpi=300, bbox_inches='tight')
-    print("✓ Gráfico guardado en: distribucion_sentimientos.png")
     plt.show()
     
     return sentimientos_conteo

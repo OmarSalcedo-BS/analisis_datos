@@ -122,6 +122,8 @@ numpy              2.3.5
 pandas             2.3.3
 python-dateutil    2.9.0.post0
 pytz               2025.2
+seaborn            0.13.2
+matplotlib         3.10.8
 ...
 ```
 

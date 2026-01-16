@@ -1,6 +1,7 @@
 import os
 import data_clean
 import pandas as pd
+import graficos
 
 """
 Momento 2 -  Fecha límite jueves 15 de enero.
@@ -73,6 +74,9 @@ def respuestas_preguntas_clave(df: pd.DataFrame, df_autores: pd.DataFrame):
     print(df_moderno)
     
     print("="*50)
+
+    graficos.graficar_distribucion_sentimientos(df)
+    print("Gráfico de distribución de sentimientos generado y guardado.")
     
 
 

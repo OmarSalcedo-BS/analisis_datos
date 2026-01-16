@@ -1,14 +1,49 @@
 ID,Categoría,Texto,Fuente/Autor,Longitud_Caracteres,Sentimiento
-1,VE RSÍCULO,"Sean amables y compasivos unos con otros, y perdónense mutuamente.",Efesios 4:32,100,Positivo
+1,VERSÍCULO,"Sean amables y compasivos unos con otros, y perdónense mutuamente.",Efesios 4:32,100,Positivo
 2,frase,"No es más rico quien más tiene, sino quien menos necesita.",Buda,56,positivo
 3,Versículo,El que perdona la ofensa cultiva el amor; el que insiste en la ofensa divide a los amigos.,Proverbios 17:9,79,NA
-4,FRASE,Si tu intención es describir la verdad, deja la elegancia al sastre.,$ Albert Einstein $$,73,Positivo
+4,FRASE,Si tu intención es describir la verdad deja la elegancia al sastre.,Albert Einstein,73,Positivo
 5,Versículo,No,NA,0,Negativo
 6,Frase,La sabiduría viene de la capacidad de estar en calma.,Séneca,45,Positivo
-7,Frase,"Una vida sin examen no vale la pena ser vivida.",SÓCRATES,51,positivo
-8,Versículo,Mas hágase todo decentemente y con orden.,1 Corintios 14:40,43,Positivo
-9,Frase,"la verdadera generosidad hacia el futuro consiste en darlo todo al presente.",albert camus,75,positivo
+7,FRASE,"Una vida sin examen no vale la pena ser vivida.",Sócrates,51,positivo
+8,versículo,Mas hágase todo decentemente y con orden.,1 Corintios 14:40,43,Positivo
+9,Frase,"La verdadera generosidad hacia el futuro consiste en darlo todo al presente.",Albert Camus,75,positivo
 10,Versículo,Perdonen y serán perdonados.,Lucas 6:37,32,Positivo
-11,versículo,perdón en el corazón es la verdadera generosidad.,lucia 6:37,32,positivo
-11,Frase,"Casaté y te arrepentiras, no te cases y te arrepentiras",albert camus,75,negativo
-12,Frase,"La vida es sufrimiento",albert camus,75,negativo
+11,versículo,Perdón en el corazón es la verdadera generosidad.,Lucas 6:37,32,positivo
+12,Frase,"Cásate y te arrepentirás no te cases y te arrepentirás",Albert Camus,65,negativo
+13,FRASE,"La vida es sufrimiento",Albert Camus,20,negativo
+14,Versículo,El amor nunca falla.,1 Corintios 13:8,20,Positivo
+15,frase,La educación es el arma más poderosa para cambiar el mundo.,Nelson Mandela,72,positivo
+16,VERSÍCULO,Porque Dios amó al mundo que ha dado su hijo único.,Juan 3:16,65,Positivo
+17,Frase,El odio nunca se cura con odio solo el amor lo cura.,Buda,50,positivo
+18,versículo,No temas porque yo estoy contigo.,Isaías 41:10,40,Positivo
+19,FRASE,La mente es todo lo que piensas.,Buda,35,positivo
+20,Frase,La guerra es una pérdida para todos.,Martin Luther King,38,negativo
+21,Versículo,Bienaventurados los que tienen un corazón puro.,Mateo 5:8,52,Positivo
+22,frase,El conocimiento es poder.,Francis Bacon,19,positivo
+23,FRASE,"La injusticia en cualquier lugar es una amenaza para la justicia en todas partes.",Martin Luther King,99,negativo
+24,versículo,Ten fe y verás milagros.,Marcos 11:24,30,Positivo
+25,Frase,La diversidad es belleza.,Maya Angelou,24,positivo
+26,VERSÍCULO,El perdón es la fragrancia que la violeta deja en el talón de quien la pisa.,Desconocido,86,Positivo
+27,Frase,La ignorancia es atrevida.,Sócrates,22,negativo
+28,frase,Todo es posible para quien cree.,Marco 9:23,32,positivo
+29,FRASE,"El silencio es oro la palabra es plata.",Proverbio,40,positivo
+30,Versículo,Ama a tu prójimo como a ti mismo.,Mateo 22:39,40,Positivo
+31,versículo,La verdad os hará libres.,Juan 8:32,29,Positivo
+32,FRASE,La esperanza es lo último que se pierde.,Desconocido,42,positivo
+33,Frase,El miedo es la prisión más grande.,Desconocido,40,negativo
+34,frase,La gratitud es el camino a la alegría.,Desconocido,39,positivo
+35,VERSÍCULO,"No juzguen y no serán juzgados.",Lucas 6:37,44,Positivo
+36,Frase,La paciencia es una virtud.,Proverbio,27,positivo
+37,versículo,Con Dios todas las cosas son posibles.,Mateo 19:26,43,Positivo
+38,FRASE,El cambio es la única constante.,Heráclito,32,positivo
+39,frase,La existencia precede a la esencia y es fundamentalmente absurda.,Jean Paul Sartre,67,negativo
+40,VERSÍCULO,El sufrimiento es inevitable en la vida.,Buda,39,Negativo
+41,Frase,El hombre es un ser condenado a ser libre.,Jean Paul Sartre,44,negativo
+42,versículo,La muerte es la única certeza absoluta que tenemos.,Epicuro,54,Negativo
+43,FRASE,La mayoría de los seres humanos viven vidas de desesperación silenciosa.,Henry David Thoreau,75,negativo
+44,frase,El mundo es una ilusión y todo es vanidad.,Schopenhauer,43,negativo
+45,Versículo,No hay propósito inherente en el universo solo el que creamos nosotros.,Camus,72,Negativo
+46,FRASE,La razón no puede explicar la esencia del ser humano.,Kierkegaard,56,negativo
+47,versículo,El pesimismo es la única filosofía racional.,Schopenhauer,48,Negativo
+48,frase,La libertad es una carga que nos agobia constantemente.,Sartre,51,negativo

@@ -1,5 +1,3 @@
 venv/
 __pycache__/
 *.pyc
-.GUIA_DEFENSA_PROYECTO.md
-.ANALISIS_PROYECTO.txt

@@ -65,7 +65,7 @@ def respuestas_preguntas_clave(df: pd.DataFrame, df_autores: pd.DataFrame):
     print("\nConteo de autores Clásicos:")
     print(conteo_clasicos)
     print(f"Número total de frases de autores Clásicos: {conteo_clasicos}")
-    print(f"Se úso un left merge para vincular la clasificación de los autores con el DataFrame principal")
+    print("Se úso un left merge para vincular la clasificación de los autores con el DataFrame principal")
 
     # --- 4. FILTRADO POST-MERGE ---
     df_moderno = df_merge[df_merge['Clasificacion'] == 'moderno'][['Texto', 'Clasificacion']]

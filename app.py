@@ -76,7 +76,10 @@ def respuestas_preguntas_clave(df: pd.DataFrame, df_autores: pd.DataFrame):
     print("="*50)
 
     graficos.graficar_distribucion_sentimientos(df)
-    print("Gráfico de distribución de sentimientos generado y guardado.")
+    print("Gráfico de distribución de sentimientos generado.")
+
+    graficos.graficar_por_categoria(df)
+    print("Gráfico de barras generado.")
     
 
 
